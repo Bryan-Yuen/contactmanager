@@ -1,0 +1,23 @@
+table {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.searchBar {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.flexbox {
+  display: flex
+}
+
+.name-header, .center-button{
+  text-align: center
+}
+
+.logout-button {
+  text-align: right;
+  padding-top: 10px;
+  padding-right: 10px;
+}
