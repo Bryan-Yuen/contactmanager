@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
+const path = require('path')
 require('dotenv').config();
 const usersRoutes = require('./routes/usersRoutes')
 const contactsRoutes = require('./routes/contactsRoutes')
@@ -16,11 +17,13 @@ mongoose.connect(process.env.DATABASE_URL , () => {
 
 // you will get an TypeError cannot read properties of undefined of like a req.body.email
 // if you don't put this
+app.use(express.static(path.join(__dirname, "client/build")));
+
 app.use(express.json());
 //
 app.use(session({
   secret: process.env.COOKIE_SECRET,
-  store: MongoStore.create({ mongoUrl: 'mongodb://localhost/Contact_Manager' }),
+  store: MongoStore.create({ mongoUrl: process.env.DATABASE_URL }),
   resave: false,
   saveUninitialized: false,
 }))
@@ -32,9 +35,11 @@ app.get('/', (req, res) => {
   res.send("hello world")
 })
 
+
 app.get('*', (req,res) => {
-  res.sendFile(path.join(__dirname, "..", "client/build", "index.html"));
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
+
 
 app.listen(process.env.PORT || 5000, () => {
   console.log("server started on port 5000");
