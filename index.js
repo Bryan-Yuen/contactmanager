@@ -9,6 +9,7 @@ const usersRoutes = require('./routes/usersRoutes')
 const contactsRoutes = require('./routes/contactsRoutes')
 
 // instantiate app object from express
+
 const app = express()
 
 mongoose.connect(process.env.DATABASE_URL , () => {
