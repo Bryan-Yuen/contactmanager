@@ -1,5 +1,5 @@
 .login-background {
-  background-color: #f0f0f0;
+  /*background-color: #f0f0f0;*/
   height: 100vh;
   display: flex;
 }
@@ -27,13 +27,12 @@ img {
 }
 
 .login-box-header {
-  text-align: center
+  /*text-align: center*/
+  margin: 30px 0;
 }
 
 .login-container {
   max-width: 500px;
   margin: auto;
   padding: 20px;
-  border: 1px solid rgba(var(--b6a,219,219,219),1);
-  background-color: white;
 }

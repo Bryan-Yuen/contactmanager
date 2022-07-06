@@ -72,7 +72,7 @@ export default function LoginPage() {
                 Login
               </button>
             </div>
-            <div class="text-center">
+            <div>
               <button type="button" class="btn btn-link" onClick={goToRegister}>
                 No account? Click here to sign up
               </button>
